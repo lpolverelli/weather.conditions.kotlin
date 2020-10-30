@@ -2,6 +2,7 @@ language: android
 dist: trusty
 before_install:
   - chmod +x gradlew
+  - yes | sdkmanager "platforms;android-30"
 android:
   components:
     # Uncomment the lines below if you want to
