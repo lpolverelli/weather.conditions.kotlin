@@ -46,4 +46,5 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     testImplementation "org.json:json:20200518"
+    testImplementation "org.mockito:mockito-inline:3.6.0"
 }
