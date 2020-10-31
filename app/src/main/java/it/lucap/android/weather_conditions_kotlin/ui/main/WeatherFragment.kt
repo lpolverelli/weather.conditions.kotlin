@@ -34,4 +34,8 @@ class WeatherFragment : Fragment() {
         }
     }
 
+    fun setCity(city: String) {
+        view?.findViewById<TextView>(R.id.message)?.text = city
+    }
+
 }
