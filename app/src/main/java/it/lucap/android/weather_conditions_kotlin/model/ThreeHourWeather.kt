@@ -13,10 +13,10 @@ data class ThreeHourWeather (
     companion object Factory {
         fun fromJson(json: JSONObject): ThreeHourWeather =
             ThreeHourWeather(
-                Date((json["dt"] as Long) * 1000),
-                if (JSONObject(json["main"] as String)["temp"] is Int) JSONObject(json["main"] as String)["temp"] as Int else
-                (JSONObject(json["main"] as String)["temp"] as Double).roundToInt(),
-                WeatherDetails.fromJson(JSONArray(json["weather"] as String)[0] as JSONObject)
+                Date((json["dt"] as Int).toLong() * 1000),
+                if (JSONObject(json["main"].toString())["temp"] is Int) JSONObject(json["main"].toString())["temp"] as Int else
+                (JSONObject(json["main"].toString())["temp"] as Double).roundToInt(),
+                WeatherDetails.fromJson(JSONArray(json["weather"].toString())[0] as JSONObject)
             )
     }
 }

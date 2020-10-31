@@ -39,8 +39,8 @@ object Webservice{
     }
 
     private fun parseDayWeather(responseBody: JSONObject): List<DayWeather> {
-        val city = City.fromJson(JSONObject(responseBody["city"] as String))
-        val list = JSONArray(responseBody["list"] as String)
+        val city = City.fromJson(JSONObject(responseBody["city"].toString()))
+        val list = JSONArray(responseBody["list"].toString())
         val threeHourWeatherList = mutableListOf<ThreeHourWeather>()
         for (index in 0 until list.length()) {
             threeHourWeatherList.add(ThreeHourWeather.fromJson(list.getJSONObject(index)))

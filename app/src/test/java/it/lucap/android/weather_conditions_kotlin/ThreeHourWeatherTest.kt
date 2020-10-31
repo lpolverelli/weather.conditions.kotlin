@@ -40,7 +40,7 @@ class  ThreeHourWeatherTest {
                 "                }\n" +
                 "            ]"
 
-        Mockito.`when`(mockJson["dt"]).thenReturn(1604232000L)
+        Mockito.`when`(mockJson["dt"]).thenReturn(1604232000)
         Mockito.`when`(mockJson["main"]).thenReturn(mainString)
         Mockito.`when`(mockJson["weather"]).thenReturn(weatherString)
 

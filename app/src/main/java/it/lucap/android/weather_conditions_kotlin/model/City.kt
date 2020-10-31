@@ -14,7 +14,7 @@ data class City (
             City(
                 json["id"] as Int,
                 json["name"] as String,
-                Coordinates.fromJson(JSONObject(json["coord"] as String)),
+                Coordinates.fromJson(JSONObject(json["coord"].toString())),
                 json["country"] as String,
                 json["timezone"] as Int
             )
