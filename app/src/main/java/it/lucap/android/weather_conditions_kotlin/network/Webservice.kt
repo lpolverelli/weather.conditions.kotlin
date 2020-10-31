@@ -32,7 +32,7 @@ object Webservice{
                 callback.onSuccess(parseDayWeather(response))
             },
             {
-                throw Exception("Failed to get the resources")
+
             }
         )
         queue.add(stringRequest)

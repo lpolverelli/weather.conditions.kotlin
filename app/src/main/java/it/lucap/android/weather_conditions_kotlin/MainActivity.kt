@@ -33,9 +33,13 @@ class MainActivity : AppCompatActivity() {
                 val fragment = supportFragmentManager.findFragmentByTag("main_fragment") as WeatherFragment
                 if (query != null) {
                     fragment.setCity(query)
+                    supportFragmentManager.beginTransaction()
+                        .detach(fragment)
+                        .attach(fragment)
+                        .commit()
                 }
-                searchView.setQuery("", false);
-                searchView.isIconified = true;
+                searchView.setQuery("", false)
+                searchView.isIconified = true
                 return false
             }
             override fun onQueryTextChange(newText: String?): Boolean {

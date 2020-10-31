@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.SavedStateViewModelFactory
 import dagger.hilt.android.AndroidEntryPoint
 import it.lucap.android.weather_conditions_kotlin.R
 import it.lucap.android.weather_conditions_kotlin.network.Webservice
@@ -29,13 +28,15 @@ class WeatherFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Webservice.init(requireContext())
+        val savedCity: String? = viewModel.savedStateHandle["city"]
+        if (savedCity == null) viewModel.setCity("Cesena")
         viewModel.dayWeatherList.observe(viewLifecycleOwner) {
-            view.findViewById<TextView>(R.id.message).text = it[0].city.name
+            view.findViewById<TextView>(R.id.city).text = it[0].city.name
         }
     }
 
     fun setCity(city: String) {
-        view?.findViewById<TextView>(R.id.message)?.text = city
+        viewModel.setCity(city)
     }
 
 }

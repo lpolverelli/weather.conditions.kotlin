@@ -8,19 +8,13 @@ import it.lucap.android.weather_conditions_kotlin.network.Webservice
 import javax.inject.Inject
 
 class WeatherRepository @Inject constructor() {
-    private var dayWeatherCache: LiveData<List<DayWeather>>? = null
+    val dayWeatherCache: MutableLiveData<List<DayWeather>> = MutableLiveData<List<DayWeather>>()
 
-    fun fetchAllWeatherDataByCity(city: String): LiveData<List<DayWeather>> {
-        if (dayWeatherCache != null && dayWeatherCache!!.value!![0].city.name == city) {
-            return dayWeatherCache as LiveData<List<DayWeather>>
-        }
-        val data = MutableLiveData<List<DayWeather>>()
-        dayWeatherCache = data
+    fun fetchAllWeatherDataByCity(city: String) {
         Webservice.fetchWeatherDataByCity(city, object : VolleyResultCallback<List<DayWeather>> {
             override fun onSuccess(result: List<DayWeather>) {
-                data.value = result
+                dayWeatherCache.value = result
             }
         })
-        return data
     }
 }

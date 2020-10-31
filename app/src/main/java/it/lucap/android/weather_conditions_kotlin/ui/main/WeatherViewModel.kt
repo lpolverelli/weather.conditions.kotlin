@@ -10,12 +10,12 @@ import it.lucap.android.weather_conditions_kotlin.resources.WeatherRepository
 
 class WeatherViewModel @ViewModelInject constructor(
     @Assisted val savedStateHandle: SavedStateHandle,
-    weatherRepository: WeatherRepository
+    private val weatherRepository: WeatherRepository
 ) : ViewModel() {
-    private val city: String = savedStateHandle["city"] ?: "Cesena"
-    val dayWeatherList: LiveData<List<DayWeather>> = weatherRepository.fetchAllWeatherDataByCity(city)
+    val dayWeatherList: LiveData<List<DayWeather>> = weatherRepository.dayWeatherCache
 
     fun setCity(city: String) {
         savedStateHandle["city"] = city
+        weatherRepository.fetchAllWeatherDataByCity(city)
     }
 }
