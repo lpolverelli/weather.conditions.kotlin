@@ -17,6 +17,10 @@ class DayWeatherHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val textViewTMin = itemView.findViewById<TextView>(R.id.tMinTextView)
     private val imageViewWeather = itemView.findViewById<ImageView>(R.id.imageView)
 
+    init {
+        itemView.tag = this
+    }
+
     fun setDetails(dayWeather: DayWeather) {
         val calendar = Calendar.getInstance()
         calendar.time = dayWeather.date
