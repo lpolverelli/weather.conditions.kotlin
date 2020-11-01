@@ -10,6 +10,15 @@
     android:weightSum="5"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
+    <ProgressBar
+        android:id="@+id/progress_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        android:layout_weight="5"
+        android:theme="@style/Theme.Weather_conditions_kotlin" />
+
     <TextView
         android:id="@+id/city"
         android:layout_width="match_parent"
@@ -20,13 +29,15 @@
         android:layout_weight="1"
         app:autoSizeTextType="uniform"
         android:lines="1"
-        android:gravity="center_vertical|center"/>
+        android:gravity="center_vertical|center"
+        android:visibility="gone"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="4"/>
+        android:layout_weight="4"
+        android:visibility="gone"/>
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -53,10 +54,14 @@ class WeatherFragment : Fragment() {
         val savedCity: String? = viewModel.savedStateHandle["city"]
         if (savedCity == null) viewModel.setCity("Cesena")
         viewModel.dayWeatherList.observe(viewLifecycleOwner) {
-            view.findViewById<TextView>(R.id.city).text = it[0].city.name + ", " + it[0].city.country
+            val cityTextView = view.findViewById<TextView>(R.id.city)
+            cityTextView.text = it[0].city.name + ", " + it[0].city.country
             dayWeatherList.clear()
             it.forEach { dayWeather -> dayWeatherList.add(dayWeather) }
             adapter.notifyDataSetChanged()
+            view.findViewById<ProgressBar>(R.id.progress_spinner).visibility = View.GONE
+            cityTextView.visibility = View.VISIBLE
+            recyclerView.visibility = View.VISIBLE
         }
     }
 
