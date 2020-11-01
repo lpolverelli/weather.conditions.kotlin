@@ -1,7 +1,6 @@
 package it.lucap.android.weather_conditions_kotlin
 
 import it.lucap.android.weather_conditions_kotlin.model.ThreeHourWeather
-import org.json.JSONArray
 import org.json.JSONObject
 import org.junit.Assert
 import org.junit.Test

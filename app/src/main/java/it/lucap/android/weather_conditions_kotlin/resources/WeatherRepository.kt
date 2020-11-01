@@ -1,6 +1,5 @@
 package it.lucap.android.weather_conditions_kotlin.resources
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import it.lucap.android.weather_conditions_kotlin.model.DayWeather
 import it.lucap.android.weather_conditions_kotlin.network.VolleyResultCallback
