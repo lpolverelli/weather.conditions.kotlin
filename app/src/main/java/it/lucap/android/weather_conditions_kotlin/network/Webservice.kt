@@ -16,7 +16,7 @@ object Webservice{
 
     private const val URL = "https://api.openweathermap.org/data/2.5/forecast?"
     private const val URL_UNIT_LANG = "units=metric&lang=it"
-    private const val API_KEY = "9a93636936ed5af65de0ed174c0c9161"
+    private const val API_KEY = ""
     private lateinit var queue: RequestQueue
 
     fun init(context: Context) {

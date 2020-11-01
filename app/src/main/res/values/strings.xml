@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">weather_conditions_kotlin</string>
+    <string name="weather_icon">weather icon</string>
+    <string name="text_separator">" - "</string>
 </resources>
